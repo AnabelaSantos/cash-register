@@ -1,16 +1,27 @@
 -- Pseudo Code --
-declare variable change = 0;
-declare variable closed as false;
 
 function cashRegister(price, cash, cid)
+
+declare variable change = 0
+declare variable closed as false
+declare message object{key, change}
+
 calculate change
-if till is closed
+If till is closed
+    closed = true
     return message closed
+
 Is payment incorrect?
     check if cash < price
         return message incorrect
+
 Is sufficient funds?
      check if cid < change
         return message insufficient
 return message open      
     
+
+
+
+How to calculate change?
+
