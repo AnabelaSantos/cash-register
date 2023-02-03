@@ -1,17 +1,32 @@
 function cashRegister(price, cash, cid) {
-  let change = cash - price;
+  let changeDue = cash - price;
   let closed = false;
-  let message = { status, change };
+  let cidTotal = 0;
+  for (let i in cid) {
+    for (let j in cid) {
+      cidTotal += cid[i][j];
+    }
+  }
+  let message = { status: "", change: [] };
+let change = [];
   if (closed) {
+    message.status = "CLOSED";
+    message.change = [];
     return message;
   }
   if (cash < price) {
-    return message;
+    message.status = "INCORRECT_PAYMENT";
+    message.change = [];
+    return message{status: , change: []};
   }
-  if (cid < change) {
-    return message;
+  if (cidTotal < changeDue) {
+    message.status = "INSUFFICIENT_FUNDS";
+    message.change = [];
+    return message{status: , change: []};
   } else {
-    return message;
+    message.status = "OPEN";
+    message.change = [];
+    return message{status: , change: []};
   }
 }
 
