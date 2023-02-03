@@ -77,6 +77,8 @@ for (let i in cid){
         }
 }   return change
             
-
+need to reverse cid array to start from big currencies
+ to smallest an then reverse the change array to get smallest
+ to biggest.
 
     
