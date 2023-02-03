@@ -26,5 +26,57 @@ return message open
 
 How to calculate cid?
     --> loop through cid and add all values in cidTotal
+    --> flatten array first?
 
 change has to be an array
+
+How to return change as array of currencies?
+    --> if less than 1 loop through QUARTER to PENNY
+    --> if less than 10 loop through FIVE to PENNY
+    --> if less than 100 loop through TWENTY and DIME
+    --> if more than 100 loop through cid
+    --> modulo 2 to get an exact match + the rest to get the change in coins?
+            $5.32 % 2 = 1.32
+            $5.32 - 1.32 = 4
+            4 % 1 = 0 so give 4 $1 bill
+            1.32 % = 0.32 
+            1.32 - 0.32 = 1
+            1 % 1 = 0 so give 1 $1 bill
+            0.32 % 0.25 = 0.07
+            0.07 % 0.05 = 0.02
+            
+
+    or 5.32 % 5 = 0.32 so 1 FIVE
+        0.32 % 0.25 = 0.07 so 1 QUARTER
+        0.07 % 0.05 = 0.02 so 1 NICKEL
+        0.02 % 0.01 = 0 so give 0.02 in PENNY
+        check how many 5 in till
+            if cid 5 > 5 give 5 in 5
+            if
+
+    $96:
+    96 % 20 = 16
+    96 - 16 = 80 so 80 in 20$
+        if not possible 80 - max20
+            and so on until 80 is done
+    16 % 10 = 6
+    16 - 6 = 10 so 10 in 10$
+        if not ....
+    6 % 5 = 1
+    6 - 1 = 5 so 5 in 5$
+        if not ...
+    1 % 1 = 0 so 1 in 1$
+
+for (let i in cid){
+    if (changeDue % cid.[i]) === 0
+        return  change += [cid.[i], changeDue]
+    if (changeDue % cid.[i]) = rest
+        (changeDue - rest === 0){
+        change += [cid[i], (changeDue - rest)]
+        changeDue = changeDue - rest      
+        }
+}   return change
+            
+
+
+    

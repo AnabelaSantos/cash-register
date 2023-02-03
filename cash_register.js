@@ -3,15 +3,15 @@ function cashRegister(price, cash, cid) {
   let closed = false;
   let cidTotal = 0;
   for (let i in cid) {
-    for (let j in cid) {
+    for (let j in cid[i]) {
       cidTotal += cid[i][j];
     }
   }
   let message = { status: "", change: [] };
   let change = [];
-  if (closed) {
+  if (closed || changeDue === cidTotal) {
     message.status = "CLOSED";
-    message.change = [];
+    message.change = cid;
     return message;
   }
   if (cash < price) {
