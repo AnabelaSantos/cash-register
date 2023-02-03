@@ -2,7 +2,7 @@
 
 function cashRegister(price, cash, cid)
 
-declare variable change = 0
+declare variable change
 declare variable closed as false
 declare message object{key, change}
 
@@ -23,5 +23,7 @@ return message open
 
 
 
-How to calculate change?
+How to calculate cid?
+    --> loop through cid and add all values in change
+
 

@@ -1,5 +1,5 @@
 function cashRegister(price, cash, cid) {
-  let change = 0;
+  let change = cash - price;
   let closed = false;
   let message = { status, change };
   if (closed) {
