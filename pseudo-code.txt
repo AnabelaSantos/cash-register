@@ -1,0 +1,16 @@
+-- Pseudo Code --
+declare variable change = 0;
+declare variable closed as false;
+
+function cashRegister(price, cash, cid)
+calculate change
+if till is closed
+    return message closed
+Is payment incorrect?
+    check if cash < price
+        return message incorrect
+Is sufficient funds?
+     check if cid < change
+        return message insufficient
+return message open      
+    
