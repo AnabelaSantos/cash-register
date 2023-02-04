@@ -26,11 +26,16 @@ function cashRegister(price, cash, cid) {
     return message;
   } else {
     for (let i in currencies) {
-      if (changeDue % currencies[i] === 0) {
-        change.push([cidR[i][0], changeDue]);
-      } else {
+      {
         if (changeDue % currencies[i] === changeDue) {
           change.push([cidR[i][0], (changeDue % cidR[i][1]) - changeDue]);
+        }
+      }
+      if (changeDue % currencies[i] === 0) {
+        if (cidR[i][1] - changeDue >= 0) {
+          change.push([cidR[i][0], changeDue]);
+
+          break;
         }
       }
     }
@@ -42,13 +47,13 @@ function cashRegister(price, cash, cid) {
 
 // Example function call
 console.log(
-  cashRegister(19.5, 20, [
+  cashRegister(5, 20, [
     ["PENNY", 1.01],
     ["NICKEL", 2.05],
     ["DIME", 3.1],
-    ["QUARTER", 4.25],
+    ["QUARTER", 1],
     ["ONE", 90],
-    ["FIVE", 55],
+    ["FIVE", 5],
     ["TEN", 20],
     ["TWENTY", 60],
     ["ONE HUNDRED", 100],
