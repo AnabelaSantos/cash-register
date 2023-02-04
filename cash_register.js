@@ -8,6 +8,8 @@ function cashRegister(price, cash, cid) {
   }
   let message = { status: "", change: [] };
   let change = [];
+  let cidR = cid.reverse();
+  let currencies = [100, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
   if (closed || changeDue === cidTotal) {
     message.status = "CLOSED";
     message.change = cid;
@@ -23,8 +25,17 @@ function cashRegister(price, cash, cid) {
     message.change = [];
     return message;
   } else {
+    for (let i in currencies) {
+      if (changeDue % currencies[i] === 0) {
+        change.push([cidR[i][0], changeDue]);
+      } else {
+        if (changeDue % currencies[i] === changeDue) {
+          change.push([cidR[i][0], (changeDue % cidR[i][1]) - changeDue]);
+        }
+      }
+    }
     message.status = "OPEN";
-    message.change = [];
+    message.change = change.reverse();
     return message;
   }
 }

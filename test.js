@@ -12,15 +12,17 @@ function cashRegister(price, cash, cid) {
   //   }
   //   console.log(cidTotal);
   // }
+  let currencies = [100, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
   let changeDue = cash - price;
   let change = [];
-  for (let i in cid.reverse()) {
-    // changeDue = changeDue % cid[i][1];
-    if (changeDue % cid[i][1] === 0) {
-      return change.push([cid[i][0], changeDue]);
+  let cidR = cid.reverse();
+  for (let i in currencies) {
+    if (changeDue % currencies[i] === 0) {
+      change.push([cidR[i][0], changeDue]);
+      return change;
     } else {
-      if (changeDue % cid[i][1] === changeDue) {
-        change.push([cid[i][0], (changeDue % cid[i][1]) - changeDue]);
+      if (changeDue % currencies[i] === changeDue) {
+        change.push([cidR[i][0], (changeDue % cidR[i][1]) - changeDue]);
       }
     }
   }
@@ -28,7 +30,7 @@ function cashRegister(price, cash, cid) {
 }
 
 console.log(
-  cashRegister(10, 20, [
+  cashRegister(19.5, 20, [
     ["PENNY", 1.01],
     ["NICKEL", 2.05],
     ["DIME", 3.1],
