@@ -29,6 +29,33 @@ function cashRegister(price, cash, cid) {
   return change;
 }
 
+// {
+//   if (changeDue % currencies[i] === changeDue) {
+//     change.push([cidR[i][0], (changeDue % cidR[i][1]) - changeDue]);
+//   }
+// }
+// if (changeDue % currencies[i] === 0) {
+//   if (changeDue - cidR[i][1] === 0) {
+//     change.push([cidR[i][0], changeDue]);
+//     // } else if (cidR[i][1] - changeDue > 0) {
+//     //   changeDue = cidR[i][1] - changeDue;
+//     //   change.push([cidR[i][0], changeDue]);
+//     // }
+//     // changeDue = changeDue - (changeDue % cidR[i][1]);
+//   }
+//   if (changeDue - cidR[i][1] >= 0) {
+//     change.push([cidR[i][0], changeDue]);
+//   } //else {
+//   //   change.push([cidR[i][0], (changeDue % cidR[i][1]) - changeDue]);
+//   //   changeDue = changeDue % cidR[i][1];
+// }
+// }
+
+// message.status = "OPEN";
+// message.change = change.reverse();
+// return message;
+// }
+
 console.log(
   cashRegister(5, 20, [
     ["PENNY", 1.01],
@@ -42,3 +69,19 @@ console.log(
     ["ONE HUNDRED", 100],
   ])
 );
+
+// if (changeDue % currencies[i] === 0) {
+//   if (cidR[i][1] > 0) {
+//     change.push([cidR[i][0], cidR[i] - changeDue]);
+//   } else {
+//     change.push([cidR[i][0], 0]);
+//   }
+//   if (changeDue % currencies[i] === changeDue) {
+//     change.push([cidR[i][0], 0]);
+//   } else {
+//     if (cidR[i][1] > 0) {
+//       change.push([cidR[i][1], changeDue - (changeDue % currencies[i])]);
+//       changeDue = changeDue % currencies[i];
+//     }
+//   }
+// }
