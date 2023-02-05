@@ -36,24 +36,48 @@ function cashRegister(price, cash, cid) {
       //added this case to make the algorithm more efficient and use the bigger notes when possible before checking the smaller one.
       if (cidR[i][1] < value && cidR[i][1] != 0) {
         change.push([cidR[i][0], cidR[i][1]]);
-        //same decimal issues.
+        //decimal issues.
         changeDue = changeDue - cidR[i][1];
         changeDue = parseFloat(changeDue).toFixed(2);
       }
-      // console.log(change);
+      //case 3
+      if (changeDue === cidTotal) {
+        for (let i in currencies) {
+          //loop through array curencies and use modulo to see if it is possible to use that currency for giving back the change.
+          let value = changeDue - (changeDue % currencies[i]);
+          //compare the change and the state of the currency in the till to know if there is enough to give back change.
+          //added a condition !=0 to not log in the array change the values equal to 0
+          if (cidR[i][1] >= value) {
+            change.push([cidR[i][0], value]);
+            //had to take care of the decimal as it was preventing the algorithm to log the change properly.
+            changeDue = changeDue % currencies[i];
+            changeDue = Math.ceil(changeDue);
+            console.log(change);
+          }
+          //added this case to make the algorithm more efficient and use the bigger notes when possible before checking the smaller one.
+          if (cidR[i][1] < value) {
+            change.push([cidR[i][0], cidR[i][1]]);
+            //same decimal issues.
+            changeDue = changeDue - cidR[i][1];
+            changeDue = parseFloat(changeDue).toFixed(2);
+          }
+        }
+        message.status = "CLOSED";
+        message.change = change.reverse();
+        return message;
+      }
     }
-  }
-  //case 2b
-  if (changeDue > 0) {
-    message.status = "INSUFFICIENT_FUNDS";
+    //case 2b
+    if (changeDue > 0) {
+      message.status = "INSUFFICIENT_FUNDS";
+      return message;
+    }
+
+    message.status = "OPEN";
+    message.change = change.reverse();
     return message;
   }
-
-  message.status = "OPEN";
-  message.change = change.reverse();
-  return message;
 }
-
 //Example function call
 // console.log(
 //   cashRegister(3.26, 100, [
@@ -70,13 +94,13 @@ function cashRegister(price, cash, cid) {
 // );
 
 console.log(
-  cashRegister(10, 20, [
-    ["PENNY", 0],
+  cashRegister(19.5, 20, [
+    ["PENNY", 0.5],
     ["NICKEL", 0],
     ["DIME", 0],
     ["QUARTER", 0],
-    ["ONE", 5],
-    ["FIVE", 5],
+    ["ONE", 0],
+    ["FIVE", 0],
     ["TEN", 0],
     ["TWENTY", 0],
     ["ONE HUNDRED", 0],
