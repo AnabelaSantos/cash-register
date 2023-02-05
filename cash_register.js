@@ -8,6 +8,7 @@ function cashRegister(price, cash, cid) {
   }
   let message = { status: "", change: [] };
   let change = [];
+  //Reverse cid to start from big notes to smaller notes.
   let cidR = cid.reverse();
   let currencies = [100, 20, 10, 5, 1, 0.25, 0.1, 0.05, 0.01];
   //Case 1
