@@ -105,3 +105,9 @@ changeDue = modulo
 
 }
     
+--------------------------
+decimal problem with the way value is calculated.
+let value = changeDue - (changeDue % currencies[i]);
+problem with modulo between 0 and 1.
+if modulo is < 1 then it should be foced to equal zero?
+when modulo < changeDue then Math.floor()
