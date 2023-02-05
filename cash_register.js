@@ -30,7 +30,6 @@ function cashRegister(price, cash, cid) {
       let value = (changeC - (changeC % currencies[i])) / 100;
       //compare the change and the state of the currency in the till to know if there is enough to give back change.
       //added a condition !=0 to not log in the array change the values equal to 0
-      //console.log(value);
       if (cidR[i][1] >= value && value != 0) {
         change.push([cidR[i][0], value]);
         //had to take care of the decimal as it was preventing the algorithm to log the change properly.
@@ -52,8 +51,6 @@ function cashRegister(price, cash, cid) {
           let changeC = changeDue * 100;
           let value = (changeC - (changeC % currencies[i])) / 100;
           //compare the change and the state of the currency in the till to know if there is enough to give back change.
-          //added a condition !=0 to not log in the array change the values equal to 0
-          //console.log(value);
           if (cidR[i][1] >= value) {
             change.push([cidR[i][0], value]);
             //had to take care of the decimal as it was preventing the algorithm to log the change properly.
@@ -78,7 +75,6 @@ function cashRegister(price, cash, cid) {
       message.status = "INSUFFICIENT_FUNDS";
       return message;
     }
-
     message.status = "OPEN";
     message.change = change.reverse();
     return message;
