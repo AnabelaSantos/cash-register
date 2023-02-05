@@ -22,17 +22,20 @@ function cashRegister(price, cash, cid) {
   } else {
     //case4a and b
     for (let i in currencies) {
+      //loop through array curencies and use modulo to see if it is possible to use that currency for giving back the change.
       let value = changeDue - (changeDue % currencies[i]);
-
+      //compare the change and the state of the currency in the till to know if there is enough to give back change.
+      //added a condition !=0 to not log in the array change the values equal to 0
       if (cidR[i][1] >= value && value != 0) {
         change.push([cidR[i][0], value]);
-
+        //had to take care of the decimal as it was preventing the algorithm to log the change properly.
         changeDue = changeDue % currencies[i];
         changeDue = parseFloat(changeDue).toFixed(2);
       }
+      //added this case to make the algorithm more efficient and use the bigger notes when possible before checking the smaller one.
       if (cidR[i][1] < value) {
         change.push([cidR[i][0], cidR[i][1]]);
-
+        //same decimal issues.
         changeDue = changeDue - cidR[i][1];
         changeDue = parseFloat(changeDue).toFixed(2);
       }
