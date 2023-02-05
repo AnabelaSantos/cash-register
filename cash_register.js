@@ -34,13 +34,13 @@ function cashRegister(price, cash, cid) {
         changeDue = parseFloat(changeDue).toFixed(2);
       }
       //added this case to make the algorithm more efficient and use the bigger notes when possible before checking the smaller one.
-      if (cidR[i][1] < value) {
+      if (cidR[i][1] < value && cidR[i][1] != 0) {
         change.push([cidR[i][0], cidR[i][1]]);
         //same decimal issues.
         changeDue = changeDue - cidR[i][1];
         changeDue = parseFloat(changeDue).toFixed(2);
       }
-      console.log(change);
+      // console.log(change);
     }
   }
   //case 2b
@@ -54,31 +54,31 @@ function cashRegister(price, cash, cid) {
   return message;
 }
 
-// Example function call
-console.log(
-  cashRegister(3.26, 100, [
-    ["PENNY", 1.01],
-    ["NICKEL", 2.05],
-    ["DIME", 3.1],
-    ["QUARTER", 4.25],
-    ["ONE", 90],
-    ["FIVE", 55],
-    ["TEN", 20],
-    ["TWENTY", 60],
-    ["ONE HUNDRED", 100],
-  ])
-);
-
+//Example function call
 // console.log(
-//   cashRegister(10, 20, [
-//     ["PENNY", 0],
-//     ["NICKEL", 0],
-//     ["DIME", 0],
-//     ["QUARTER", 0],
-//     ["ONE", 5],
-//     ["FIVE", 5],
-//     ["TEN", 0],
-//     ["TWENTY", 0],
-//     ["ONE HUNDRED", 0],
+//   cashRegister(3.26, 100, [
+//     ["PENNY", 1.01],
+//     ["NICKEL", 2.05],
+//     ["DIME", 3.1],
+//     ["QUARTER", 4.25],
+//     ["ONE", 90],
+//     ["FIVE", 55],
+//     ["TEN", 20],
+//     ["TWENTY", 60],
+//     ["ONE HUNDRED", 100],
 //   ])
 // );
+
+console.log(
+  cashRegister(10, 20, [
+    ["PENNY", 0],
+    ["NICKEL", 0],
+    ["DIME", 0],
+    ["QUARTER", 0],
+    ["ONE", 5],
+    ["FIVE", 5],
+    ["TEN", 0],
+    ["TWENTY", 0],
+    ["ONE HUNDRED", 0],
+  ])
+);
