@@ -1,0 +1,19 @@
+reverse cash in drawers so that change is counted from highest to lowest.
+Get the most appropriate change
+
+change already defined
+changeholder = 0
+cid 
+
+
+need to define what each coin is worth e.g. penny = 0.01 dollar = 1
+
+loop through cid[1]
+if change is less than cid[1]
+when condition met decriment from cid
+decriment from change
+add to changeholder -- create changeholder (set to zero)
+when change is at zero loop ends
+
+return changeholder
+need to add make changeholder array when decriment from cid needs to be added to corresponding 
