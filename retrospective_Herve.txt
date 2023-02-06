@@ -1,0 +1,10 @@
+----LIKED----
+I enjoyed working on the cash register logic in javascript.
+We gave each others pointers and solutions when we could'nt figure out how to get arround a problem.
+----LEARNED----
+Learned a lot more about arrays!
+----LACKED----
+Lacked knowledge about javascript and HTML dom interraction to properly do the UI.
+----LONGED FOR----
+I would havd had prefer more course and time properly brainstorm and code everything.
+I felt a bit time pressured.
