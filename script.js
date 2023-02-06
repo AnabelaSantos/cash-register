@@ -66,34 +66,43 @@ function cashRegister(price, cash, cid) {
   }
 }
 //script
-let price = 0;
+let cid = [
+  ["PENNY", 1.01],
+  ["NICKEL", 2.05],
+  ["DIME", 3.1],
+  ["QUARTER", 4.25],
+  ["ONE", 90],
+  ["FIVE", 55],
+  ["TEN", 20],
+  ["TWENTY", 60],
+  ["ONE HUNDRED", 100],
+];
+let cash = 60;
+let price = 3.26;
 let price2 = "";
 let priceJS = document.querySelector("#button-price");
 let priceDisplay = document.querySelector("#price");
 let buttons = document.querySelectorAll(".button");
-let changeMessage = document.querySelectorAll(".change-message");
+let changeMessage = document.querySelector(".change-message");
+let enterButton = document.querySelector("#button-enter");
 document.addEventListener("click", function (event) {
   if (event.target.classList.contains("button")) {
     price2 += event.target.value;
     priceDisplay.textContent = "Price:$" + price2;
   }
 });
-document.addEventListener("click", function (event) {
-  if (event.target.classList.contains("#button-enter")) {
+priceJS.addEventListener("click", function (event) {
+  if (event.target.classList.contains("button-price")) {
     price += Number(price2);
-    cashRegister(price, 20, [
-      ["PENNY", 0.5],
-      ["NICKEL", 0],
-      ["DIME", 0],
-      ["QUARTER", 0],
-      ["ONE", 0],
-      ["FIVE", 0],
-      ["TEN", 0],
-      ["TWENTY", 0],
-      ["ONE HUNDRED", 0],
-    ]);
-    changeMessage.textContent = message;
   }
+});
+enterButton.addEventListener("click", function (event) {
+  let result = cashRegister(price, cash, cid);
+  result.change.forEach((element) => {
+    let li = document.createElement("ul");
+    li.innerText = element;
+    changeMessage.appendChild(li);
+  });
 });
 //Example function call
 // console.log(
@@ -111,7 +120,7 @@ document.addEventListener("click", function (event) {
 // );
 
 // console.log(
-//   cashRegister(price, 20, [
+//   cashRegister(19.5, 20, [
 //     ["PENNY", 0.5],
 //     ["NICKEL", 0],
 //     ["DIME", 0],

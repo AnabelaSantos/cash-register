@@ -6,8 +6,10 @@
     height: 100vh;
 }
 .display{
-    height: 300px;
-    width: 300px;
+    display: flex;
+    flex-wrap: wrap;
+    height: 200px;
+    width: 200px;
     border: solid 2px;
     margin: 0 0 50px;
 }
