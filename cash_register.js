@@ -24,7 +24,7 @@ function cashRegister(price, cash, cid) {
   //case 3
   if (changeDue === cidTotal) {
     message.status = "CLOSED";
-    message.change = cid;
+    message.change = cid.reverse();
     return message;
   } else {
     for (let i in currencies) {
@@ -66,30 +66,30 @@ function cashRegister(price, cash, cid) {
   }
 }
 //Example function call
-console.log(
-  cashRegister(3.26, 60, [
-    ["PENNY", 1.01],
-    ["NICKEL", 2.05],
-    ["DIME", 3.1],
-    ["QUARTER", 4.25],
-    ["ONE", 90],
-    ["FIVE", 55],
-    ["TEN", 20],
-    ["TWENTY", 60],
-    ["ONE HUNDRED", 100],
-  ])
-);
-
 // console.log(
-//   cashRegister(18.5, 20, [
-//     ["PENNY", 0.5],
-//     ["NICKEL", 0],
-//     ["DIME", 0],
-//     ["QUARTER", 0],
-//     ["ONE", 1],
-//     ["FIVE", 0],
-//     ["TEN", 0],
-//     ["TWENTY", 0],
-//     ["ONE HUNDRED", 0],
+//   cashRegister(3.26, 60, [
+//     ["PENNY", 1.01],
+//     ["NICKEL", 2.05],
+//     ["DIME", 3.1],
+//     ["QUARTER", 4.25],
+//     ["ONE", 90],
+//     ["FIVE", 55],
+//     ["TEN", 20],
+//     ["TWENTY", 60],
+//     ["ONE HUNDRED", 100],
 //   ])
 // );
+
+console.log(
+  cashRegister(19.5, 20, [
+    ["PENNY", 0.5],
+    ["NICKEL", 0],
+    ["DIME", 0],
+    ["QUARTER", 0],
+    ["ONE", 0],
+    ["FIVE", 0],
+    ["TEN", 0],
+    ["TWENTY", 0],
+    ["ONE HUNDRED", 0],
+  ])
+);
