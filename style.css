@@ -9,14 +9,14 @@
   flex-direction: row;
 }
 
-.display {
+.screen {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   height: 75vh;
   width: 75vw;
-  /* border: solid 2px #080202; */
+  border: solid 1px darkgray;
 }
 
 .calculator {
@@ -36,7 +36,7 @@
   margin-right: 0%;
 }
 
-#text {
+/* #text {
   text-align: center;
   font-size: larger;
   height: 75vh;
@@ -45,6 +45,16 @@
   border: solid 1px darkgray;
   padding-top: 1vw;
 }
+
+#price-input {
+  text-align: center;
+  font-size: larger;
+  height: 75vh;
+  width: 75vw;
+  color: #ffffff;
+  border: solid 1px darkgray;
+  padding-top: 1vw;
+} */
 
 .icons-btn-group {
   display: flex;
