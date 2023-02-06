@@ -47,9 +47,10 @@ function cashRegister(price, cash, cid) {
   // iterate trough cid to check if we have the correct currency type
   let checkChangeValue = changeValue;
   for (let i = 0; i < cidReversed.length; i++) {
-    let typeCurrency = cidReversed[i][0]; // eg TEN
-    let typeCurrencyAmount = cidReversed[i][1]; // eg 40
-    let typeCurrencyValue = moneyValue[typeCurrency]; // eg 10
+    let typeCurrency = cidReversed[i][0]; // eg TEN//get the currency type "penny" or "nickel"...
+    let typeCurrencyAmount = cidReversed[i][1]; // eg 40//get the amount in each currency type for example, $40 in "twenty"
+    let typeCurrencyValue = moneyValue[typeCurrency]; // Get the value of each type of currency "quarter" has the value of 0.25
+
     if (checkChangeValue >= typeCurrencyValue && typeCurrencyAmount > 0) {
       let newEntryChange = [typeCurrency, 0.0];
       while (checkChangeValue >= typeCurrencyValue && typeCurrencyAmount > 0) {
