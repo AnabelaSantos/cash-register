@@ -12,36 +12,36 @@
     <section id="top-screen">
     <section  class="container">
         <div id="calculator"class="display">
-            <p>Enter Price</p>
+           <section id="text"></section>
         </div>
         <Section class="calculator">
         <div>
-            <button type="button" value="1">1</button>
-        <button type="button" value="2">2</button>
-        <button type="button" value="3">3</button>
+            <input class ="button" type="button" value="1"></input>
+        <input class ="button" type="button" value="2"></input>
+        <input class ="button" type="button" value="3"></input>
         
         </div>
         <div>
-            <button type="button" value="4">4</button>
-            <button type="button" value="5">5</button>
-            <button type="button" value="6">6</button>
+            <input class ="button" type="button" value="4"></input>
+            <input class ="button" type="button" value="5"></input>
+            <input class ="button" type="button" value="6"></input>
         
         </div>
         <div>
-            <button type="button" value="7">7</button>
-            <button type="button" value="8">8</button>
-            <button type="button" value="9">9</button>
+            <input class ="button" type="button" value="7"></button>
+            <input class ="button" type="button" value="8"></input>
+            <input class ="button" type="button" value="9"></input>
             </div>
         <div>
-            <button type="button" value="10">0</button>
-            <button type="button" value=".">.</button>
-            <button type="button" value = 'C' onclick="clearScreen()" >&#8678 del</button><br>
-            <button type="button">&#9166 ENTER</button>
+            <input class ="button" type="button" value="10"></input>
+            <input class ="button" type="button" value="."></input>
+            <input class ="button" type="button" value = '&#8678 del' onclick="clearScreen()"></input><br>
+            <input class ="button" type="button" value="&#9166 ENTER"></input>
         </div></Section>
     <section class="icons-btn-group">
-        <button class="icon-btn" type="button">🏷️<br>Price</button></>
-        <button class="icon-btn" type="button">💰<br>Cash</button>
-        <button class="icon-btn" type="button">🪙<br>Change</button>
+        <button onclick="replaceContentInContainer('text', 'Please Insert Price')" id="price-button" class="icon-btn" type="button">🏷️<br>Price</button></>
+        <button onclick="replaceContentInContainer('text', 'Please Insert Cash')" id="cash-button" class="icon-btn" type="button">💰<br>Cash</button>
+        <button onclick="" id="change-button" class="icon-btn" type="button">🪙<br>Change</button>
     </section>
     </section>
     </section>
@@ -60,7 +60,6 @@
                   </tr>
                 
               </table>
-
-
 </footer>
+<script src="script.js"></script>
 </html>

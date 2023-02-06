@@ -65,6 +65,14 @@ function cashRegister(price, cash, cid) {
     }
   }
 }
+//Script
+
+//getting the button and textbox
+
+function replaceContentInContainer(target, sourceText) {
+  document.getElementById(target).innerHTML = sourceText;
+}
+
 //Example function call
 // console.log(
 //   cashRegister(3.26, 60, [
