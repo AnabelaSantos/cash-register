@@ -65,6 +65,36 @@ function cashRegister(price, cash, cid) {
     }
   }
 }
+//script
+let price = 0;
+let price2 = "";
+let priceJS = document.querySelector("#button-price");
+let priceDisplay = document.querySelector("#price");
+let buttons = document.querySelectorAll(".button");
+let changeMessage = document.querySelectorAll(".change-message");
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("button")) {
+    price2 += event.target.value;
+    priceDisplay.textContent = "Price:$" + price2;
+  }
+});
+document.addEventListener("click", function (event) {
+  if (event.target.classList.contains("#button-enter")) {
+    price += Number(price2);
+    cashRegister(price, 20, [
+      ["PENNY", 0.5],
+      ["NICKEL", 0],
+      ["DIME", 0],
+      ["QUARTER", 0],
+      ["ONE", 0],
+      ["FIVE", 0],
+      ["TEN", 0],
+      ["TWENTY", 0],
+      ["ONE HUNDRED", 0],
+    ]);
+    changeMessage.textContent = message;
+  }
+});
 //Example function call
 // console.log(
 //   cashRegister(3.26, 60, [
@@ -80,16 +110,16 @@ function cashRegister(price, cash, cid) {
 //   ])
 // );
 
-console.log(
-  cashRegister(19.5, 20, [
-    ["PENNY", 0.5],
-    ["NICKEL", 0],
-    ["DIME", 0],
-    ["QUARTER", 0],
-    ["ONE", 0],
-    ["FIVE", 0],
-    ["TEN", 0],
-    ["TWENTY", 0],
-    ["ONE HUNDRED", 0],
-  ])
-);
+// console.log(
+//   cashRegister(price, 20, [
+//     ["PENNY", 0.5],
+//     ["NICKEL", 0],
+//     ["DIME", 0],
+//     ["QUARTER", 0],
+//     ["ONE", 0],
+//     ["FIVE", 0],
+//     ["TEN", 0],
+//     ["TWENTY", 0],
+//     ["ONE HUNDRED", 0],
+//   ])
+// );

@@ -111,3 +111,15 @@ let value = changeDue - (changeDue % currencies[i]);
 problem with modulo between 0 and 1.
 if modulo is < 1 then it should be foced to equal zero?
 when modulo < changeDue then Math.floor()
+
+
+
+----------
+on clik button "1"
+add "1" to a variable strPrice
+display strPrice
+on click button "2"
+add "2" to strPrice
+display strPrice
+
+
