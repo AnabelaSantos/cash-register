@@ -1,0 +1,67 @@
+/* Sadia Edited */
+* {
+    background-color: black;
+    color: #a852ab;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+  }
+  .container {
+    display: flex;
+    flex-direction: row;
+  }
+  input[name="display"] {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+      height: 65vh;
+      width: 65vw;
+      border: solid 2px #080202;
+      font-size:100px
+  }
+  #calculator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 0 20px;
+    padding: 10px 16px;
+  }
+  #calculator input[type="button"] {
+    cursor: pointer;
+    background-color: #888383a9;
+    margin-right: 0%;
+    font-size: 20px;
+    margin: 3px;
+  }
+  .icons-btn-group {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 20px;
+    padding: 10px 16px;
+    align-items: center;
+    justify-content: center;
+  }
+  .icon-btn {
+    padding: 20px 16px;
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  table,
+  th,
+  td {
+    border: 1px solid transparent;
+    border-collapse: collapse;
+  }
+  p {
+    text-align: center;
+  }
+  th,
+  td {
+    background-color: #000000de;
+    width: 25vw;
+    height: 5vh;
+    padding-left: 30%;
+  }
